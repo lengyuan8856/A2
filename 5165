@@ -1,0 +1,43 @@
+'''
+@作者:冷鸢
+@描述:基于TCP的通讯APP(内含AES)
+'''
+import socket
+from crypto.cipher import AES
+
+def AES_1(lation):
+    #加密模块
+    key=b'1444828194827284257
+    #密钥
+    aes=AES.new(key,AES.MODE_ECB)        #初始化AES,模式为ECB
+    en_lation=aes.encrypt(lation)        #将明文转换成密文
+    
+    return lation
+    
+def AES_2(content):
+    #解密模块
+     den_content=aes.decrypt(content)       #将密文转换明文
+     return content
+     
+def listen(host):
+    #监听模块
+    port＝8080               #目标主机端口号
+    web＝socket.socket()     #初始化网络套接字
+    web.bind((host.port))    #绑定地址址
+    web.listen(255)          #最大连接数
+    while True:              #死循环
+        conn.addr=web.accept()     #建立连接
+        date=conn.recv()
+        dates=date.encode()  #将接收的数据转换成二进制数据
+        conn.close()         #关闭链接
+        
+        return dates         返
+        
+def Go(host,contents):
+    #发送模块
+    s=socket.socket()
+    port=8080
+    s.content((host.port))
+    s.send(content.encode())
+    s.close()
+    
